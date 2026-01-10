@@ -1,0 +1,16 @@
+FROM mysql:8.0
+
+# Set root password
+ENV MYSQL_ROOT_PASSWORD=password
+
+# Install vim (using microdnf for Oracle Linux based image)
+RUN microdnf install -y vim && \
+    microdnf clean all
+
+EXPOSE 3306
+
+# Placeholder for schema files
+# COPY your-schema.sql /docker-entrypoint-initdb.d/
+# Add additional .sql or .sh files here as needed
+# Files in /docker-entrypoint-initdb.d/ are executed in alphabetical order on container startup
+    

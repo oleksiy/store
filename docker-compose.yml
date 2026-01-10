@@ -1,0 +1,7 @@
+services:
+  db:
+    build:
+      context: .
+      dockerfile: Dockerfile.db
+    ports:
+      - "3306:3306"
