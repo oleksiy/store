@@ -32,13 +32,21 @@ jobs:
       run: bundle exec rails test
 
     - name: Verify app can boot
+      env:
+        RAILS_ENV: production
+        SECRET_KEY_BASE: test_secret_key_base_for_ci
       run: |
-        timeout 10 bundle exec rails server -d -p 3000 || true
+        bundle exec rails assets:precompile
+        bundle exec rails db:migrate
+        timeout 10 bundle exec rails server -e production -p 3000 &
+        SERVER_PID=$!
         sleep 5
-        if lsof -i :3000 > /dev/null 2>&1; then
+        if curl -s http://localhost:3000 > /dev/null 2>&1; then
           echo "✅ Application is running successfully"
-          pkill -f 'rails server'
+          kill $SERVER_PID
+          exit 0
         else
           echo "❌ Application failed to start"
+          kill $SERVER_PID 2>/dev/null || true
           exit 1
         fi
