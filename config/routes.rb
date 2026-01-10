@@ -7,7 +7,7 @@ Rails.application.routes.draw do
 
   # create a new product
   post "/products", to: "products#create"
-  get "/products/new", to "products#create"
+  get "/products/new", to: "products#create"
   
   # get a product by id or name
   get "/products/:id", to: "products#show"
