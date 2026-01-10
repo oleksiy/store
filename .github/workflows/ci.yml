@@ -1,0 +1,44 @@
+name: CI
+
+on:
+  push:
+    branches: [ main, master ]
+  pull_request:
+    branches: [ main, master ]
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v4
+
+    - name: Set up Ruby
+      uses: ruby/setup-ruby@v1
+      with:
+        ruby-version: 3.3.8
+        bundler-cache: true
+
+    - name: Install dependencies
+      run: bundle install
+
+    - name: Set up database
+      run: |
+        bundle exec rails db:create
+        bundle exec rails db:migrate
+
+    - name: Run tests
+      run: bundle exec rails test
+
+    - name: Verify app can boot
+      run: |
+        timeout 10 bundle exec rails server -d -p 3000 || true
+        sleep 5
+        if lsof -i :3000 > /dev/null 2>&1; then
+          echo "✅ Application is running successfully"
+          pkill -f 'rails server'
+        else
+          echo "❌ Application failed to start"
+          exit 1
+        fi
