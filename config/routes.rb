@@ -8,8 +8,8 @@ Rails.application.routes.draw do
   get "/products", to: "products#index", as: "products"
 
   # create a new product
-  post "/products", to: "products#create", as: "products_create"
-  get "/products/new", to: "products#create", as: "products_new"
+  post "/products", to: "products#new", as: "product_create_by_post"
+  get "/products/new", to: "products#new", as: "product_new"
   
   # get a product by id or name - when you refer to these in erb files, you have to match the alias you used in the as:
   get "/products/:id", to: "products#show", as: "product_show"
