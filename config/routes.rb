@@ -16,7 +16,7 @@ Rails.application.routes.draw do
   get "/products/:name", to: "products#show", as: "product_show_by_name"
   
   # update a product
-  get "/products/:id/edit", to: "products#edit", as: "products_edit_by_id"
+  get "/products/:id/edit", to: "products#edit", as: "edit_product"
   patch "/products/:id", to: "products#update", as: "products_update_by_id_patch"
   put "/products/:id", to: "products#update", as: "products_update_by_id_put"
   
