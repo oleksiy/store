@@ -3,18 +3,20 @@ Rails.application.routes.draw do
 
   # Defines the root path route ("/")
   # root "articles#index"
+  root "products#index"
+
   get "/products", to: "products#index", as: "products"
 
   # create a new product
-  post "/products", to: "products#create", as: "products_create"
-  get "/products/new", to: "products#create", as: "products_new"
+  post "/products", to: "products#create", as: "product_create_by_post"
+  get "/products/new", to: "products#new", as: "product_new"
   
-  # get a product by id or name
-  get "/products/:id", to: "products#show", as: "products_show"
-  get "/products/:name", to: "products#show", as: "products_show_by_name"
+  # get a product by id or name - when you refer to these in erb files, you have to match the alias you used in the as:
+  get "/products/:id", to: "products#show", as: "product"
+  get "/products/:name", to: "products#show", as: "product_show_by_name"
   
   # update a product
-  get "/products/:id/edit", to: "products#edit", as: "products_edit_by_id"
+  get "/products/:id/edit", to: "products#edit", as: "edit_product"
   patch "/products/:id", to: "products#update", as: "products_update_by_id_patch"
   put "/products/:id", to: "products#update", as: "products_update_by_id_put"
   
