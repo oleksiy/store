@@ -21,7 +21,6 @@ class ProductsController < ApplicationController
   end
 
   def edit 
-    @product = Product.find(params[:id])
   end
 
   def update
@@ -34,6 +33,10 @@ class ProductsController < ApplicationController
   end
 
   private
+    def set_product
+      @product = Product.find(params[:id])
+    end
+
     def product_params
       params.expect(product: [ :name ])
     end
