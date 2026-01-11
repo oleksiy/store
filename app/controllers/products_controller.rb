@@ -1,10 +1,10 @@
 class ProductsController < ApplicationController
+  before_action :set_product, only: %i[ show edit update ]
   def index
     @products = Product.all
   end
 
   def show
-    @product = Product.find(params[:id])
   end
 
   def new
@@ -24,7 +24,6 @@ class ProductsController < ApplicationController
   end
 
   def update
-    @product = Product.find(params[:id])
     if(@product.update(product_params))
       redirect_to @product
     else
