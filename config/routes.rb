@@ -12,7 +12,7 @@ Rails.application.routes.draw do
   get "/products/new", to: "products#new", as: "product_new"
   
   # get a product by id or name - when you refer to these in erb files, you have to match the alias you used in the as:
-  get "/products/:id", to: "products#show", as: "product_show"
+  get "/products/:id", to: "products#show", as: "product"
   get "/products/:name", to: "products#show", as: "product_show_by_name"
   
   # update a product
