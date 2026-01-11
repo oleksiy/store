@@ -1,5 +1,5 @@
 class ProductsController < ApplicationController
-  before_action :set_product, only: %i[ show edit update ]
+  before_action :set_product, only: %i[ show edit update destroy ]
   def index
     @products = Product.all
   end
@@ -21,6 +21,11 @@ class ProductsController < ApplicationController
   end
 
   def edit 
+  end
+
+  def destroy
+    @product.destroy
+    redirect_to products_path
   end
 
   def update
