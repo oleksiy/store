@@ -29,6 +29,10 @@
 !/tmp/storage/
 !/tmp/storage/.keep
 
+.DS_Store
+.idea/
+identifier.sqlite
+
 /public/assets
 
 # Ignore master key for decrypting credentials and more.

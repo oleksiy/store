@@ -1,24 +1,9 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## Debugging Instructions
+1. `bundle install`
+2. `rdbg -n --open --port 55195 --host localhost -- bin/rails server`
+3. In a separate terminal or tab run `rdbg -A 127.0.0.1 55195`
 
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+### OR
+Just use built-in debugger configuration in your IDE. Everything's vanilla.
