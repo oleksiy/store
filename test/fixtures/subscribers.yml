@@ -1,9 +1,9 @@
 # Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
-  prodcut: one
+  product: one
   email: MyString
 
 two:
-  prodcut: two
+  product: two
   email: MyString

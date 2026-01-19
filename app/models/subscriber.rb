@@ -1,3 +1,3 @@
 class Subscriber < ApplicationRecord
-  belongs_to :prodcut
+  belongs_to :product
 end
