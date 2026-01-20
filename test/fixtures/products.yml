@@ -2,6 +2,8 @@
 
 one:
   name: MyString
+  inventory_count: 1
 
 two:
   name: MyString
+  inventory_count: 5
