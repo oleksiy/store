@@ -1,9 +1,9 @@
 # Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
-  name: MyString
-  inventory_count: 1
+  product: one
+  email: to@example.org
 
 two:
-  name: MyString
-  inventory_count: 5
+  product: two
+  email: to@example.org
