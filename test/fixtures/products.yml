@@ -7,3 +7,8 @@ one:
 two:
   name: MyString
   inventory_count: 5
+
+tshirt:
+    name: T-Shirt
+    inventory_count: 15
+
