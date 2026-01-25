@@ -1,11 +1,11 @@
-require "test_helper"
+require 'test_helper'
 
 class ProductTest < ActiveSupport::TestCase
   include ActionMailer::TestHelper
   # test "the truth" do
   #   assert true
   # end
-  test "send email notis when back in stock" do
+  test 'send email notis when back in stock' do
     product = products(:tshirt)
 
     # Set product to out of stock
