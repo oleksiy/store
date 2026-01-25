@@ -4,16 +4,16 @@ class SubscribersController < ApplicationController
 
   def create
     @product.subscribers.where(subscriber_params).first_or_create
-    redirect_to @product, notice: "Successfully subscribed for notifications about this product."
+    redirect_to @product, notice: 'Successfully subscribed for notifications about this product.'
   end
 
   private
-    def set_product
-      @product = Product.find(params[:product_id])
-    end
-    def subscriber_params
-      params.expect(subscriber: [ :email ])
-    end
 
+  def set_product
+    @product = Product.find(params[:product_id])
+  end
 
+  def subscriber_params
+    params.expect(subscriber: [:email])
+  end
 end
